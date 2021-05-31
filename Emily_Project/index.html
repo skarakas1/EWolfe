@@ -3,26 +3,41 @@
     <head>
         <title>Emily Wolfe/Digital Asset Project/Spring 2020</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="styles/front_page.css">
+        <link rel="stylesheet" href="styles/index_style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet"> 
+        <link rel="icon" href="data:;base64,=">
+
 
     </head>
 
     <body>
-       
+        <header>
+            <h1>Cynthia Wolfe</h1>
+            <h3>Cards and Works on Paper</h3>
+        </header>
+        
+        <div id="lbutton">
+            <i class="arrow left"></i>
+        </div>
 
-        <section>
-            <a href="template.html">
-                <div class="container">
-                    <p>Cynthia&nbsp;Wolfe <br>
-                    Cards and Works on Paper</p>
-                </div>
-            </a>
-        </section>
+        <div id="imagecontainer">
+            <img src="cwolfe_images/cwolfe-aw-1.jpg" id="img">
+        </div>
+
+        <!--initialize a table to access thru the script-->
+        <div id="tablecontainer">
+        <table id="thetable">
+        </table>
+        </div>
     
-        <footer>
-            Copyright Emily Wolfe 2021
-        </footer>
-       <!-- <script src="js/init.js"></script> -->
+        <div id="rbutton">
+            <i class="arrow right"></i>
+        </div>
+
+       <footer>
+           Copyright Emily Wolfe 2021
+       </footer>
+        <script src="script/init.js"></script>
     </body>
+</html>

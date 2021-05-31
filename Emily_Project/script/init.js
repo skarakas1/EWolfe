@@ -3,7 +3,7 @@ let metaCat = ["Title","Creator", "Description", "Date Created", "Material", "Di
 
 //-------------------------------------arrays for indv details
 
-let cwolfe_aw_001 = ["\"Award\" Valentine 2013", "Wolfe, Cynthia A.", "Handmade paper Valentine in the shape of an award ribbon. Composed of paper, a metal ring, hemp thread , wallpaper samples, book pages and a vellum envelope" , "2013" , "Paper, Metal and Thread" ,  "6\"x3\"", "collage (technique); mixed media; greeting cards; valentines; cut-paper work" , "English" , "Image" , "JPEG" ,  "All rights reserved." , "Images may not be used without permission of the artist." , "cwolfe-aw-001"];
+let cwolfe_aw_001 = ["\"Award\" Valentine 2013", "Wolfe, Cynthia A.", "Handmade paper Valentine in the shape of an award ribbon. Composed of paper, a metal ring, hemp thread , wallpaper samples, book pages and a vellum envelope" , "2013" , "Paper, Metal and Thread" ,  "6\"x3\"", "collage (technique); mixed media; greeting cards; valentines; cut-paper work" , "English" , "Image" , "JPEG" ,  "All rights reserved. Images may not be used without permission of the artist." , "cwolfe-aw-001"];
 
 let cwolfe_aw_002 = ["Valentine 2021", "Wolfe, Cynthia A", "Handmade Valentine's Day card with hand drawn flowers, foliage, and a pink and red embroidered heart on a textured paper background.", "2021", "Ink and Thread on Paper", "9\"x6\"", "collage (technique); mixed media; greeting cards; valentines", "English", "Image", "JPEG", "All rights reserved. Images may not be used without permission of the artist.", "cwolfe-aw-002"];
 

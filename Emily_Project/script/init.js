@@ -77,6 +77,7 @@ function popTable(table, objectPlz){
 //function for button click right
 function plus(index, works){
     thisIndex = index + 1;//add one to avoid falsy 0
+    console.log(thisIndex);
     if (thisIndex < (works.length + 1)){
         thisIndex++
     }
@@ -84,15 +85,14 @@ function plus(index, works){
         thisIndex = 1;
     }
     changeObject(works[thisIndex],thisIndex,works);
-    document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex)  + ".jpg";
+    document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex + 1)  + ".jpg";
     index = thisIndex - 1;
-    console.log(index);
+    //console.log(index);
     return index;
 }
 
 //function for button click left
 function minus(index, works){
-    
     thisIndex = index + 1;
     if (thisIndex > 1){
         thisIndex = thisIndex - 1;
@@ -101,9 +101,9 @@ function minus(index, works){
         thisIndex = works.length + 1;
     }
     changeObject(works[thisIndex],thisIndex,works);
-    document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex) + ".jpg";
-    console.log("photo #")
-    console.log(thisIndex - 1)
+    document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex + 1) + ".jpg";
+    //console.log("photo #")
+    //console.log(thisIndex - 1)
     index = thisIndex - 1;
     return index;
 }
@@ -142,7 +142,7 @@ function changeTableNew(data){
 
 //--------------------------------------action governor
 theObject = popObject(metaCat,works[0],theObject);
-console.log(theObject);
+//console.log(theObject);
 popTable(table,theObject);
 
 rButton.addEventListener("click", function(){

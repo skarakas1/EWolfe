@@ -41,9 +41,6 @@ let works = [cwolfe_aw_001,cwolfe_aw_002,cwolfe_aw_003,cwolfe_aw_004,cwolfe_aw_0
 //create variable for works array indexing
 let index = 0;
 
-//object to get arrays from works
-let worksIndex = works[index];
-
 //object to hold both arrays
 let theObject = {};
 
@@ -77,6 +74,40 @@ function popTable(table, objectPlz){
     }
 }
 
+//function for button click right
+function plus(index, works){
+    thisIndex = index + 1;//add one to avoid falsy 0
+    if (thisIndex < (works.length + 1)){
+        thisIndex++
+    }
+    else{
+        thisIndex = 1;
+    }
+    changeObject(works[thisIndex],thisIndex,works);
+    document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex)  + ".jpg";
+    index = thisIndex - 1;
+    console.log(index);
+    return index;
+}
+
+//function for button click left
+function minus(index, works){
+    
+    thisIndex = index + 1;
+    if (thisIndex > 1){
+        thisIndex = thisIndex - 1;
+    }
+    else{
+        thisIndex = works.length + 1;
+    }
+    changeObject(works[thisIndex],thisIndex,works);
+    document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex) + ".jpg";
+    console.log("photo #")
+    console.log(thisIndex - 1)
+    index = thisIndex - 1;
+    return index;
+}
+
 //----------------------------------button functions
 //function to change object on click
 function changeObject(data, index){
@@ -89,16 +120,11 @@ function changeObject(data, index){
     }
     //else index is lower than length//
     if (index == 0){//should this be ===?
-        theObject.values = data[14];
+        theObject.values = data[14]; //    set data to the upperbound
     }
     else{
         theObject.values = data[index];
     }
-//    set data to the upperbound
-
-    //index = 0
-    // console.log('data')
-    // console.log(data)
     changeTableNew(data)
 }
 
@@ -114,54 +140,9 @@ function changeTableNew(data){
     }
 }
 
-//function for button click right
-function plus(index, works){
-
-    thisIndex = index + 1;
-
-    if (index < (works.length + 1)){
-        thisIndex++
-    }
-    else{
-        thisIndex = 1;
-    }
-
-    changeObject(works[thisIndex],thisIndex,works);
-
-    document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex)  + ".jpg";
-    
-    //console.log(document.getElementById("img").src)
-
-    index = thisIndex - 1;
-    console.log(index);
-    return index;
-}
-
-//function for button click left
-function minus(index, works){
-    
-    thisIndex = index + 1;
-    
-    if (index > 1){
-        thisIndex = thisIndex - 1;
-    }
-    else{
-        thisIndex = works.length + 1;
-    }
-
-    changeObject(works[thisIndex],thisIndex,works);
-
-    document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex) + ".jpg";
-    console.log("photo #")
-    console.log(thisIndex - 1)
-
-    index = thisIndex - 1;
-    return index;
-}
-
-
 //--------------------------------------action governor
-theObject = popObject(metaCat,worksIndex,theObject);
+theObject = popObject(metaCat,works[0],theObject);
+console.log(theObject);
 popTable(table,theObject);
 
 rButton.addEventListener("click", function(){

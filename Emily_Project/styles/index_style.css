@@ -42,7 +42,7 @@ footer{
     margin-right: 20px;
 }
 
-tr:first-of-type{
+.bold{
     font-weight: bold;
 }
 

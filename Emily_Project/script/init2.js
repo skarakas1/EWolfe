@@ -33,16 +33,8 @@ let cwolfe_aw_014 = ["Abstract Collage Postcard","Wolfe, Cynthia A.","Hand paint
 
 let cwolfe_aw_015 = ["Birthday Sculpture","Wolfe, Cynthia A.","3D figural wood sculpture for a 25th birthday celebration. The sculpture is meant to be hung and is reversible, revealing a unique image on both sides. The sculpture is composed of a wood base decorated with marbled paper, magazine cut outs and found metal objects. Eight bone beads (one is missing) make up the \"limbs\" of the figure.","2013","Wood, metal, bone, paper","11.5\" x 3.5\" x 1\"","collage (technique); mixed media; birthday cards; found object sculpture","English","Image","JPEG","All rights reserved. Images may not be used without permission of the artist.","cwolfe-aw-015"];
 
-//----------------------------variable declarations
-
 //create an array to hold works' arrays
 let works = [cwolfe_aw_001,cwolfe_aw_002,cwolfe_aw_003,cwolfe_aw_004,cwolfe_aw_005,cwolfe_aw_006,cwolfe_aw_007,cwolfe_aw_008,cwolfe_aw_009,cwolfe_aw_010,cwolfe_aw_011,cwolfe_aw_012,cwolfe_aw_013,cwolfe_aw_014,cwolfe_aw_015];
-
-//create variable for works array indexing
-let index = 0;
-
-//object to hold both arrays
-let theObject = {};
 
 //table variable
 let table = document.querySelector("table");
@@ -51,18 +43,15 @@ let table = document.querySelector("table");
 rButton = document.getElementById("rbutton");
 lButton = document.getElementById("lbutton");
 
-//-------------------------functions to populate table at load
-//init object
-function popObject(meta, data, object){
-    meta.forEach((key, i) => object[key] = data[i]);
-    
-    // console.log(object);
-    return object;
-}
+//declare index
+index = 0;
 
-//init table
-function popTable(table, objectPlz){
-    for (items in objectPlz){
+//create & populate table
+function popTable(table, metaArray, itemArray){
+    for (i in metaArray){
+        console.log('metaArray')
+        console.log(metaArray)
+        console.log(table)
         let row = table.insertRow();
         
         let cell1 = row.insertCell(0);
@@ -70,170 +59,74 @@ function popTable(table, objectPlz){
 
         cell1.setAttribute("class","bold")
         cell2.setAttribute("class","data-entry")
-        cell1.innerHTML = items;
-        cell2.innerHTML = objectPlz[items];
+        cell1.innerHTML = metaArray[i];
+        cell2.innerHTML = itemArray[i];
     }
 }
 
-//function for button click right
-// function plus(index, works){
-//     thisIndex = index;//add one to avoid falsy 0
-//     console.log(thisIndex);
-//     if (thisIndex < (works.length + 1)){
-//         thisIndex++
-//     }
-//     else{
-//         thisIndex = 1;
-//     }
-//     newChangeObject(works[thisIndex],thisIndex,works);
-//     document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex + 1)  + ".jpg";
-//     //index = thisIndex - 1;
-//     //console.log(index);
-//     //return index;
-//     return thisIndex;
-// }
+popTable(table, metaCat, cwolfe_aw_001);
 
-// //function for button click left
-// function minus(index, works){
-//     thisIndex = index;
-//     if (thisIndex > 1){
-//         thisIndex = thisIndex - 1;
-//     }
-//     else{
-//         thisIndex = works.length + 1;
-//     }
-    
-//     newChangeObject(works[thisIndex],thisIndex,works);
-//     document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex + 1) + ".jpg";
-//         //console.log("photo #")
-//     //console.log(thisIndex - 1)
-//     //index = thisIndex - 1;
-//     //return index;
-//     return thisIndex;
-// }
-//function for button click left
-function newMinus(index, works){
-    index
-    if (index > 1){
-        index = index - 1;
-        theObject.values = data;
-        document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (index + 1) + ".jpg";
-    }
-    else{
-        theObject.values = works[14]
-        document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + "15" + ".jpg";
-    }
 
-    theTable = document.getElementsByClassName('data-entry');
-    i=0;
-    while (i < works.length){
-        theTable[i].innerHTML = theObject[i];
-        // console.log(data[i]);
-        i++
+//plusButton function
+function plusButton(index){
+    try{
+        if (index < (works.length + 1)){
+            index ++;
+            newArray = works[index];
+            document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (index + 1) + ".jpg";
+            theTable = document.getElementsByClassName('data-entry');
+            i=0;
+            while (i < newArray.length){
+                theTable[i].innerHTML = newArray[i];
+                i++
+            }
+        }
     }
-    
-    
-    //newChangeObject(works[thisIndex],thisIndex,works);
-        //console.log("photo #")
-    //console.log(thisIndex - 1)
-    //index = thisIndex - 1;
-    //return index;
+    catch{
+        newArray = works[0];
+        document.getElementById("img").src = "cwolfe_images/cwolfe-aw-1.jpg";
+        theTable = document.getElementsByClassName('data-entry');
+        i=0;
+        while (i < newArray.length){
+            theTable[i].innerHTML = newArray[i];
+            i++
+        }
+        index = 1;
+    }
     return index;
 }
-function newPlus(index, works){
-    if (index < (works.length + 1)){
-        index++
-        newArray = works[index];
-        document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (index + 1) + ".jpg";
+function minusButton(index){
+    try{
+        if (index > 0){
+            index = index - 1;
+            newArray = works[index];
+            document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (index + 1) + ".jpg";
+            theTable = document.getElementsByClassName('data-entry');
+            i = 0;
+            while (i < newArray.length){
+                theTable[i].innerHTML = newArray[i];
+                i++
+            }
+        }
     }
-    else {
-        newArray = works[0]
-        document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + "0" + ".jpg";
+    catch{
+        newArray = works[works.length];
+        document.getElementById("img").src = "cwolfe_images/cwolfe-aw-15.jpg";
+        theTable = document.getElementsByClassName('data-entry');
+        i=0;
+        while (i < newArray.length){
+            theTable[i].innerHTML = newArray[i];
+            i++;
+        }
+        index = 14;
     }
-
-    theTable = document.getElementsByClassName('data-entry');
-    i=0;
-    while (i < theObject.length){
-        theTable[i].innerHTML = newArray[i];
-        // console.log(data[i]);
-        i++
-    }
-    //newChangeObject(works[thisIndex],thisIndex,works);
-        //console.log("photo #")
-    //console.log(thisIndex - 1)
-    //index = thisIndex - 1;
-    //return index;
     return index;
 }
-//----------------------------------button functions
-//function to change object on click
-// function changeObject(data, index){
-//     index = index - 1;
 
-//     // newObject.values = data;
-//     //if index is greater than length//
-//     if (index > works.length){
-//         theObject.values = data[0];
-//     }
-//     //else index is lower than length//
-//     if (index == 0){//should this be ===?
-//         theObject.values = data[14]; //    set data to the upperbound
-//     }
-//     else{
-//         theObject.values = data[index];
-//     }
-//     changeTableNew(data)
-// }
-// function newChangeObject(data, index){
-//     // newObject.values = data;
-//     //if index is greater than length//
-//     if (index){
-//         theObject.values = data;
-//     }
-//     else {
-//         theObject.values = works[0]
-//     }
-//     // if (index > works.length){
-//     //     theObject.values = data[0];
-//     // }
-//     // //else index is lower than length//
-//     // if (index == 0){//should this be ===?
-//     //     theObject.values = data[14]; //    set data to the upperbound
-//     // }
-//     // else{
-//     //     theObject.values = data[index];
-//     // }
-//     //changeTableNew(data)
-//     theTable = document.getElementsByClassName('data-entry');
-//     // console.log(theTable)
-//     i=0;
-//     while (i < data.length){
-//         theTable[i].innerHTML = data[i];
-//         // console.log(data[i]);
-//         i++
-//     }
-// }
-
-// //function to change table on click
-// function changeTableNew(data){
-//     theTable = document.getElementsByClassName('data-entry');
-//     // console.log(theTable)
-//     i=0;
-//     while (i < data.length){
-//         theTable[i].innerHTML = data[i];
-//         // console.log(data[i]);
-//         i++
-//     }
-// }
-
-//--------------------------------------action governor
-theObject = popObject(metaCat,works[0],theObject);
-//console.log(theObject);
-popTable(table,theObject);
 
 rButton.addEventListener("click", function(){
-    index = newPlus(index, works, metaCat)
+    index = plusButton(index)
 });
 lButton.addEventListener("click", () =>{
-    index = newMinus(index, works, metaCat)
+    index = minusButton(index)
 });

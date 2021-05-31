@@ -76,7 +76,7 @@ function popTable(table, objectPlz){
 
 //function for button click right
 function plus(index, works){
-    thisIndex = index + 1;//add one to avoid falsy 0
+    thisIndex = index;//add one to avoid falsy 0
     console.log(thisIndex);
     if (thisIndex < (works.length + 1)){
         thisIndex++
@@ -84,47 +84,70 @@ function plus(index, works){
     else{
         thisIndex = 1;
     }
-    changeObject(works[thisIndex],thisIndex,works);
+    newChangeObject(works[thisIndex],thisIndex,works);
     document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex + 1)  + ".jpg";
-    index = thisIndex - 1;
+    //index = thisIndex - 1;
     //console.log(index);
-    return index;
+    //return index;
+    return thisIndex;
 }
 
 //function for button click left
 function minus(index, works){
-    thisIndex = index + 1;
+    thisIndex = index;
     if (thisIndex > 1){
         thisIndex = thisIndex - 1;
     }
     else{
         thisIndex = works.length + 1;
     }
-    changeObject(works[thisIndex],thisIndex,works);
+    newChangeObject(works[thisIndex],thisIndex,works);
     document.getElementById("img").src = "cwolfe_images/cwolfe-aw-" + (thisIndex + 1) + ".jpg";
-    //console.log("photo #")
+        //console.log("photo #")
     //console.log(thisIndex - 1)
-    index = thisIndex - 1;
-    return index;
+    //index = thisIndex - 1;
+    //return index;
+    return thisIndex;
 }
 
 //----------------------------------button functions
 //function to change object on click
-function changeObject(data, index){
-    index = index - 1;
+// function changeObject(data, index){
+//     index = index - 1;
 
+//     // newObject.values = data;
+//     //if index is greater than length//
+//     if (index > works.length){
+//         theObject.values = data[0];
+//     }
+//     //else index is lower than length//
+//     if (index == 0){//should this be ===?
+//         theObject.values = data[14]; //    set data to the upperbound
+//     }
+//     else{
+//         theObject.values = data[index];
+//     }
+//     changeTableNew(data)
+// }
+function newChangeObject(data, index){
     // newObject.values = data;
     //if index is greater than length//
-    if (index > works.length){
-        theObject.values = data[0];
+    if (index){
+        theObject.values = data;
     }
-    //else index is lower than length//
-    if (index == 0){//should this be ===?
-        theObject.values = data[14]; //    set data to the upperbound
+    else {
+        theObject.values = works[0]
     }
-    else{
-        theObject.values = data[index];
-    }
+    // if (index > works.length){
+    //     theObject.values = data[0];
+    // }
+    // //else index is lower than length//
+    // if (index == 0){//should this be ===?
+    //     theObject.values = data[14]; //    set data to the upperbound
+    // }
+    // else{
+    //     theObject.values = data[index];
+    // }
     changeTableNew(data)
 }
 

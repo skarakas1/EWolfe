@@ -76,7 +76,7 @@ img{
     margin-left: 50% ;
   }
 
-  @media all and (max-width: 1300px){
+  @media all and (max-width: 1200px){
     body{
       grid-template-areas:
       "header header header "
